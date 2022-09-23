@@ -13,6 +13,11 @@ class _HomePageState extends State<HomePage> {
     ["Go to Class", false],
     ["Make Tutorial", false],
   ];
+  void checkBoxChanged(bool? value, int index) {
+    setState(() {
+      toDoList[index][1] = !toDoList[index][1];
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +33,8 @@ class _HomePageState extends State<HomePage> {
         itemBuilder: (context, index) {
           return ToDoTile(
               taskName: toDoList[index][0],
-              taskCompleted: toDoList[index][0],
-              onchanged: (_) {});
+              taskCompleted: toDoList[index][1],
+              onchanged: (value) => checkBoxChanged(value, index));
         },
       ),
     );
