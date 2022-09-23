@@ -28,11 +28,12 @@ class _ToDoTileState extends State<ToDoTile> {
         right: 25,
       ),
       child: Slidable(
-        endActionPane: ActionPane(motion: StretchMotion(), children: [
+        endActionPane: ActionPane(motion: const StretchMotion(), children: [
           SlidableAction(
             onPressed: widget.deleteFunction,
             icon: Icons.delete,
             backgroundColor: Colors.red.shade300,
+            borderRadius: BorderRadius.circular(12),
           )
         ]),
         child: Container(
@@ -45,13 +46,15 @@ class _ToDoTileState extends State<ToDoTile> {
                   activeColor: Colors.black),
               Text(widget.taskName,
                   style: TextStyle(
+                      color: Colors.white,
                       decoration: widget.taskCompleted
                           ? TextDecoration.lineThrough
                           : TextDecoration.none))
             ],
           ),
           decoration: BoxDecoration(
-              color: Colors.yellow, borderRadius: BorderRadius.circular(12)),
+              color: Color(0xff222228),
+              borderRadius: BorderRadius.circular(12)),
         ),
       ),
     );
